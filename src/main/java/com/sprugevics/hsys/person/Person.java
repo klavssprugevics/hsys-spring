@@ -4,8 +4,7 @@ package com.sprugevics.hsys.person;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table
+@MappedSuperclass
 public class Person {
 
     @Id
@@ -20,28 +19,6 @@ public class Person {
 
     @Embedded
     private Address homeAddress;
-
-    public Person() {
-    }
-
-    public Person(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
-        this.homeAddress = homeAddress;
-    }
-
-    public Person(long personId, String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress) {
-        PersonId = personId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
-        this.homeAddress = homeAddress;
-    }
 
     public Address getHomeAddress() {
         return homeAddress;
@@ -89,6 +66,18 @@ public class Person {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.homeAddress = homeAddress;
     }
 
     @Override

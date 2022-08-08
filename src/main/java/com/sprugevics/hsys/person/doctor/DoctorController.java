@@ -1,4 +1,4 @@
-package com.sprugevics.hsys.person;
+package com.sprugevics.hsys.person.doctor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="api/person")
+@RequestMapping(path="api/doctors")
 @CrossOrigin(origins="http://localhost:3000")
-public class PersonController {
+public class DoctorController {
 
-    private final PersonService personService;
+    private final DoctorService doctorService;
 
     @Autowired
-    public PersonController(PersonService personService) {
-        this.personService = personService;
+    public DoctorController(DoctorService doctorService) {
+        this.doctorService = doctorService;
     }
 
     @GetMapping
-    public List<Person> getPersons() {
-        return personService.getPersons();
+    public List<Doctor> getDoctors() {
+        return doctorService.getDoctors();
     }
 }
