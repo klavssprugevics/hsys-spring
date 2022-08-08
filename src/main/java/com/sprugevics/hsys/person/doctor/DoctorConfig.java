@@ -16,7 +16,7 @@ public class DoctorConfig {
         return args -> {
           Doctor d1 = new Doctor("James", "Bean", "22222222", "james.b@gmail.com",
                   LocalDate.of(1993, 6, 4),
-                  new Address("Latvia", "Ventspils", "LV-3601"), "Surgery", "ER");
+                  new Address("Latvia", "Ventspils", "LV-3601", "Inženieru 3"), "Surgery", "ER");
           doctorRepository.saveAll(List.of(d1));
         };
     }

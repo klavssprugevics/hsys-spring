@@ -10,6 +10,8 @@ public class Address {
     private String country;
     private String city;
     private String postalCode;
+    private String street;
+    private String apartmentNumber;
 
     public String getCountry() {
         return country;
@@ -35,13 +37,38 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getApartmentNumber() {
+        return apartmentNumber;
+    }
+
+    public void setApartmentNumber(String apartmentNumber) {
+        this.apartmentNumber = apartmentNumber;
+    }
+
     public Address() {
     }
 
-    public Address(String country, String city, String postalCode) {
+    public Address(String country, String city, String postalCode, String street) {
         this.country = country;
         this.city = city;
         this.postalCode = postalCode;
+        this.street = street;
+    }
+
+    public Address(String country, String city, String postalCode, String street, String apartmentNumber) {
+        this.country = country;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.street = street;
+        this.apartmentNumber = apartmentNumber;
     }
 
     @Override
