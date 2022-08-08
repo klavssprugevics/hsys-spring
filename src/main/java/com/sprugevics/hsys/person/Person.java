@@ -1,10 +1,7 @@
 package com.sprugevics.hsys.person;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -21,24 +18,37 @@ public class Person {
     private String email;
     private LocalDate dateOfBirth;
 
+    @Embedded
+    private Address homeAddress;
+
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth) {
+    public Person(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
+        this.homeAddress = homeAddress;
     }
 
-    public Person(long personId, String firstName, String lastName, String phone, String email, LocalDate dateOfBirth) {
+    public Person(long personId, String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress) {
         PersonId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
     }
 
     public String getFirstName() {
@@ -90,6 +100,7 @@ public class Person {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
+                ", homeAddress=" + homeAddress.toString() +
                 '}';
     }
 }

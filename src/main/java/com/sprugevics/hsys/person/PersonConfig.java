@@ -13,7 +13,9 @@ public class PersonConfig {
     @Bean
     CommandLineRunner commandLineRunner(PersonRepository personRepository) {
         return args -> {
-          Person p1 = new Person("James", "Bean", "22222222", "james.b@gmail.com", LocalDate.of(1993, 6, 4));
+          Person p1 = new Person("James", "Bean", "22222222", "james.b@gmail.com",
+                  LocalDate.of(1993, 6, 4),
+                  new Address("Latvia", "Ventspils", "LV-3601"));
 
           personRepository.saveAll(List.of(p1));
         };
