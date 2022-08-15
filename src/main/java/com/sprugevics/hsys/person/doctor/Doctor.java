@@ -10,31 +10,22 @@ import java.time.LocalDate;
 @Entity
 @Table
 public class Doctor extends Person {
-    private String specialization;
-    private String department;
+
+    private Department department;
 
     public Doctor() {
     }
 
-    public Doctor(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress, String specialization, String department) {
+    public Doctor(String firstName, String lastName, String phone, String email, LocalDate dateOfBirth, Address homeAddress, Department department) {
         super(firstName, lastName, phone, email, dateOfBirth, homeAddress);
-        this.specialization = specialization;
         this.department = department;
     }
 
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
