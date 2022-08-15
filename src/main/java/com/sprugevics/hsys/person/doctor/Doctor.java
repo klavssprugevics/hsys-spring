@@ -1,17 +1,22 @@
 package com.sprugevics.hsys.person.doctor;
 
+import com.sprugevics.hsys.appointment.Appointment;
 import com.sprugevics.hsys.person.Address;
 import com.sprugevics.hsys.person.Person;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
-@Table
 public class Doctor extends Person {
 
     private Department department;
+
+    @OneToMany(mappedBy="doctor")
+    private Set<Appointment> appointments;
 
     public Doctor() {
     }
@@ -29,4 +34,19 @@ public class Doctor extends Person {
         this.department = department;
     }
 
+    public Set<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void addAppointment(Appointment appointment) {
+        this.appointments.add(appointment);
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "department=" + department +
+                ", appointments=" + appointments +
+                '}';
+    }
 }

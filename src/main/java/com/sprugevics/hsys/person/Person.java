@@ -9,7 +9,7 @@ public class Person {
 
     @Id
     @GeneratedValue(generator="increment")
-    private long PersonId;
+    private long personId;
 
     private String firstName;
     private String lastName;
@@ -83,7 +83,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "PersonId=" + PersonId +
+                "PersonId=" + personId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phone='" + phone + '\'' +
